@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تفاصيل الرواية | أسامة المسلم</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body-tag">
+    <header>
+        <nav class="navbar">
+            <div class="logo">مكتبة المسلم</div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">الكتب</a></li>
+                <li><a href="cart.html">السلة (<span id="cart-count">0</span>)</a></li>
+            </ul>
+            <button onclick="toggleTheme()">تغيير الثيم</button>
+        </nav>
+    </header>
+
+    <main style="padding: 40px;">
+        <section class="product-details-flex" style="display: flex; gap: 40px; align-items: flex-start; background: var(--card-bg); padding: 20px; border-radius: 15px;">
+            <div class="product-image">
+                <img src="khof-cover.jpg" alt="Cover" style="width: 300px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            </div>
+            
+            <div class="product-info">
+                <h2 style="color: var(--accent);">رواية خوف - أسامة المسلم</h2>
+                <p style="line-height: 1.8; font-size: 1.1rem;">
+                    <b>نبذة:</b> تتحدث الرواية عن عالم الجن والعلاقات البشرية الغامضة، وتعتبر من أشهر أعمال الكاتب.
+                </p>
+                
+                <h4 style="margin-top: 20px;">استمع لمقطع من الرواية:</h4>
+                <audio controls style="width: 100%; margin-top: 10px;">
+                    <source src="khof-audio-sample.mpeg" type="audio/mpeg">
+                    متصفحك لا يدعم تشغيل الصوت.
+                </audio>
+
+                <div style="margin-top: 30px;">
+                    <button onclick="addToCart('رواية خوف', 150)" class="btn">إضافة للسلة - 150 EGP</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
