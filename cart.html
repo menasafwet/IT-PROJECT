@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>سلة المشتريات</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .checkout-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .checkout-btn {
+            background-color: var(--nav-bg); 
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .checkout-btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body id="body-tag">
+    <header>
+        <nav class="navbar">
+            <div class="logo">مكتبة المسلم</div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">الكتب</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section style="padding: 50px;">
+        <h2>محتويات السلة</h2>
+        <table style="width:100%; border-collapse: collapse; background: var(--card-bg);">
+            <thead>
+                <tr style="background:var(--nav-bg); color:white;">
+                    <th style="padding:15px;">الكتاب</th>
+                    <th>السعر</th>
+                    <th>حذف</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items" style="text-align:center;">
+            </tbody>
+        </table>
+
+        <h3 style="margin-top:20px;">الإجمالي: <span id="total-amount">0</span> EGP</h3>
+        
+        <div class="checkout-container">
+            <button class="checkout-btn" onclick="processCheckout()">إتمام الشراء</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme') || 'light-theme';
+            document.getElementById('body-tag').className = savedTheme;
+            displayCart();
+        };
+
+        function displayCart() {
+            let cart = JSON.parse(localStorage.getItem('my_cart')) || [];
+            let tableBody = document.getElementById('cart-items');
+            let total = 0;
+            tableBody.innerHTML = "";
+
+            cart.forEach((item, index) => {
+                total += item.price;
+                tableBody.innerHTML += `
+                    <tr>
+                        <td style="padding:10px; border-bottom:1px solid #ddd;">${item.name}</td>
+                        <td style="border-bottom:1px solid #ddd;">${item.price}</td>
+                        <td style="border-bottom:1px solid #ddd;"><button onclick="removeFromCart(${index})" style="color:red;">حذف</button></td>
+                    </tr>`;
+            });
+            document.getElementById('total-amount').innerText = total;
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('my_cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('my_cart', JSON.stringify(cart));
+            displayCart();
+        }
+        function processCheckout() {
+            let cart = JSON.parse(localStorage.getItem('my_cart')) || [];
+            if (cart.length === 0) {
+                alert("السلة فارغة حالياً!");
+            } else {
+                alert("شكراً لشرائك من مكتبة المعلم! سيتم معالجة طلبك.");
+            }
+        }
+    </script>
+</body>
+</html>
