@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>إنشاء حساب | مكتبة أسامة المسلم</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body-tag">
+    <header>
+        <nav class="navbar">
+            <div class="logo">مكتبة المسلم</div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">الكتب</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="register-container">
+        <div class="split-layout" style="display: flex; min-height: 80vh; align-items: center;">
+            <div class="register-info" style="flex: 1; padding: 50px; background: var(--accent); color: white;">
+                <h2>انضم لمجتمع القراء</h2>
+                <p>احصل على تنبيهات بأحدث روايات أسامة المسلم فور صدورها، وتابع حالة طلباتك بسهولة.</p>
+            </div>
+
+            <div class="register-form" style="flex: 1; padding: 50px;">
+                <form id="regForm" style="box-shadow: none; margin: 0;">
+                    <h3>إنشاء حساب جديد</h3>
+                    <input type="text" id="reg-user" placeholder="اسم المستخدم" required>
+                    <input type="password" id="reg-pass" placeholder="كلمة المرور" required>
+                    <button type="button" onclick="saveUserData()" class="btn">إنشاء حساب</button>
+                    <p id="reg-status" style="margin-top: 10px;"></p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
