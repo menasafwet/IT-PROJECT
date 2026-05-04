@@ -6,7 +6,17 @@
     <link rel="stylesheet" href="style-2.css">
 </head>
 <body>
-    <button id="theme-btn" class="theme-toggle">تغير وضع الالوان</button>
+    <nav class="navbar">
+            <div class="logo">مكتبة المسلم</div>
+            <ul class="nav-links">
+                <li><a href="home.html">الرئيسية</a></li>
+                <li><a href="products.html">الكتب</a></li>
+                <li><a href="cart.html">السلة (<span id="cart-count">0</span>)</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+				<li><a href="about.html">عن المتجر</a></li>
+            </ul>
+        </nav>
+    <button id="theme-btn" class="theme-toggle">تغير الثيم</button>
     <div class="container">
         <header>
             <h1>اتصل بنا</h1>
@@ -15,7 +25,7 @@
             <section class="form-section">
                 <h2>ارسل استفسارك</h2>
                 <form id="contactForm">
-                    <div class="field">
+                    <div class="field"> 
                         <label>لاسم رباعي </label>
                         <input type="text" id="name" placeholder="اكتب اسمك هنا">
                         <label>البريد الالكتروني</label>
